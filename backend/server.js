@@ -1,9 +1,10 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const cors = require('cors');
-const helmet = require('helmet');
-const morgan = require('morgan');
-const rateLimit = require('express-rate-limit');
+import express from 'express';
+import dotenv from 'dotenv';
+import cors from 'cors';
+import helmet from 'helmet';
+import morgan from 'morgan';
+import rateLimit from 'express-rate-limit';
+import urlRoutes from './routes/urlRoutes.js'; // Ensure the file path is correct and uses .js extension
 
 // Load environment variables
 dotenv.config();
@@ -26,7 +27,7 @@ const limiter = rateLimit({
 app.use(limiter);
 
 // Routes
-app.use('/api/urls', require('./routes/urlRoutes'));
+app.use('/api/urls', urlRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
