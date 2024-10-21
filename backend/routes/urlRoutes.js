@@ -26,7 +26,7 @@ const supabaseAdmin = createClient(
 
 const fetchMusicData = async (req, res, channelId) => {
   const { data, error } = await supabaseAdmin
-    .from('music')
+    .from('videos')
     .select('*')
     .eq('channel_id', channelId);
   if (error) {
@@ -64,7 +64,7 @@ router.get('/allbeat', async (req, res) => {
 });
 
 router.get('/allmusic', async (req, res) => {
-  const { data, error } = await supabaseAdmin.from('music').select('*');
+  const { data, error } = await supabaseAdmin.from('videos').select('*');
   if (error) {
     return res.status(500).json({ error: 'Error fetching data from Supabase' });
   }
@@ -122,6 +122,7 @@ router.get('/allMessages', (req, res) => {
               `Fetched ${messages.size} messages from channel ${channelId}`
             );
             allMessages = allMessages.concat(messages);
+
             if (messages && messages.size > 0) {
               lastMessageId = messages.last().id;
             }
@@ -139,7 +140,7 @@ router.get('/allMessages', (req, res) => {
 
             for (const message of youtubeMessages.values()) {
               const { data, error } = await supabaseAdmin
-                .from('music')
+                .from('videos')
                 .select('*')
                 .order('id');
               if (error) {
@@ -184,7 +185,7 @@ router.get('/allMessages', (req, res) => {
                         info.items[0].snippet
                       ) {
                         const { error } = await supabaseAdmin
-                          .from('music')
+                          .from('videos')
                           .insert([
                             {
                               title: info.items[0].snippet.title,
@@ -194,6 +195,9 @@ router.get('/allMessages', (req, res) => {
                               username: username,
                               thumb: thumbnailUrl,
                               message_timestamp: messageTimestamp,
+                              is_active: true, // New field
+                              view_count: 0, // New field
+                              heart_count: 0, // New field
                             },
                           ]);
 
