@@ -1,77 +1,111 @@
-# Discord Music Bot Backend API
+# Zoo-tube Backend API
 
-This is a backend API for a music-related Discord bot and web application. It fetches music data from various Discord channels, stores it in a Supabase database, and provides endpoints to access this data.
+## Overview
 
-## Features
+Backend service for Zoo-tube - a real-time music discovery platform that connects Discord communities with music enthusiasts. The service processes YouTube links shared in Discord channels, manages user interactions, and provides real-time data synchronization.
 
-- Fetch music data from specific Discord channels
-- Store and retrieve music information from a Supabase database
-- Interact with the YouTube API to get video details
-- Provide endpoints to access music data for different genres or channels
+## 🚀 Features
 
-## Technologies Used
+- Discord message processing and YouTube link extraction
+- Genre-based music categorization
+- API endpoints for music discovery
 
-- Node.js
-- Express.js
-- Supabase
-- Discord.js
-- YouTube Data API
+## 🛠 Tech Stack
 
-## Prerequisites
+- **Node.js** - Runtime environment
+- **Express.js** - Web framework
+- **Discord.js** - Discord bot integration
+- **Supabase** - Database and authentication
+- **YouTube Data API** - Video information fetching
 
-Before you begin, ensure you have met the following requirements:
+## 📋 Prerequisites
 
-- Node.js installed (version 12.x or later recommended)
-- A Supabase account and project set up
-- A Discord bot token
-- A YouTube Data API key
+- Node.js (v16 or higher)
+- npm/yarn
+- Discord Bot Token
+- Supabase Account
+- YouTube API Key
 
-## Installation
+## 🔧 Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+DISCORD_BOT_TOKEN=your_discord_bot_token
+PUBLIC_SUPABASE_URL=your_supabase_url
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_key
+YOUTUBE_API_KEY=your_youtube_api_key
+```
+
+## 🚀 Getting Started
 
 1. Clone the repository:
-   git clone https://github.com/yourusername/discord-music-bot-api.git
 
-2. Navigate to the project directory:cd discord-music-bot-api
+```bash
+git clone https://github.com/yourusername/okizoo-backend.git
+cd okizoo-backend
+```
 
-3. Install the dependencies: npm install
+2. Install dependencies:
 
-## Configuration
+```bash
+npm install
+```
 
-1. Create a `.env` file in the root directory
-2. Add the following environment variables:
+3. Run development server:
 
-## Running the API
+```bash
+npm run dev
+```
 
-To run the API, use the following command: npm start
+## 📚 API Endpoints
 
-The server will start running at `http://localhost:8000` (or the port you specified in the .env file).
+### Music Endpoints
 
-## API Endpoints
+- `GET /api/urls/allmusic` - Fetch all music tracks
+- `GET /api/urls/allhop` - Fetch Hip-Hop tracks
+- `GET /api/urls/allgems` - Fetch Gems collection
+- `GET /api/urls/allregga` - Fetch Reggae tracks
+- `GET /api/urls/allturntable` - Fetch Turntablism tracks
+- `GET /api/urls/alldnb` - Fetch Drum & Bass tracks
+- `GET /api/urls/allhouse` - Fetch House tracks
+- `GET /api/urls/allbeat` - Fetch Beat tracks
 
-- `GET /api/urls/allhop`: Fetch music data from the Hip Hop channel
-- `GET /api/urls/allgems`: Fetch music data from the Gems channel
-- `GET /api/urls/allregga`: Fetch music data from the Reggae channel
-- `GET /api/urls/allturntable`: Fetch music data from the Turntable channel
-- `GET /api/urls/alldnb`: Fetch music data from the Drum and Bass channel
-- `GET /api/urls/allhouse`: Fetch music data from the House channel
-- `GET /api/urls/allbeat`: Fetch music data from the Beat channel
-- `GET /api/urls/allmusic`: Fetch all music data
-- `GET /api/urls/allMessages`: Process and store new messages from specified Discord channels
+## 📁 Project Structure
+
+```
+backend/
+├── routes/           # API route definitions
+├── controllers/      # Request handlers
+```
 
 ## Discord Bot Functionality
 
 The Discord bot listens to specified channels, processes YouTube links shared in these channels, and stores the information in the Supabase database. It extracts video details using the YouTube Data API.
 
-## Contributing
+## 🎯 Upcoming Features
 
-Contributions to the Discord Music Bot Backend API are welcome. Please follow these steps:
+- code refactoring
+- Real-time radio synchronization
+- Live chat system
+- Multiple radio channels
+- Enhanced analytics
+- User playlists
+
+## 🤝 Contributing
 
 1. Fork the repository
-2. Create a new branch: `git checkout -b feature-branch-name`
-3. Make your changes and commit them: `git commit -m 'Add some feature'`
-4. Push to the original branch: `git push origin feature-branch-name`
-5. Create a pull request
+2. Create your feature branch: `git checkout -b feature/amazing-feature`
+3. Commit your changes: `git commit -m 'Add amazing feature'`
+4. Push to the branch: `git push origin feature/amazing-feature`
+5. Open a Pull Request
 
-## Contact
+## 📝 License
 
-If you have any questions or feedback, please contact Tek Jones at [tekthree+github@gmail.com].
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 📧 Contact
+
+Tek Jones - tekthree@gmail.com
+
+Project Link: [https://github.com/Tekthree/okizoo-backend](https://github.com/Tekthree/okizoo-backend)
